@@ -1,0 +1,41 @@
+
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Gender</th>
+        <th>Position</th>
+        <th>Salary</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let p of employee; let o = odd; let e = even"  
+      [ngClass] = "{'oddStyle': o, 'evenStyle': e}"
+       >
+        <td><p appHighlight>{{p.id}}</p></td>
+        <td> <p appHighlight>{{p.name.toUpperCase()}}</p></td>
+        <td><p  appHighlight>{{p.age}}</p></td>
+        <td><p  appHighlight>{{p.gender}}</p></td>
+        <td *ngIf="p.age < 40; else elseBlock"><p  appHighlight>Jr.Employee</p></td>
+          
+          <ng-template #elseBlock>
+            <td><p  appHighlight>Sr.Employee</p></td>
+          </ng-template>
+        
+        <td *ngIf="p.age > 40; else elseBlock1"> <p  appHighlight>{{p.age*10+50000}}</p></td>
+          
+          <ng-template #elseBlock1>
+               <td> <p  appHighlight>{{p.age*5+50000}}</p></td>
+          </ng-template>
+        
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- <h2>Child Component</h2>
+  current count is {{count}} -->
+
+
+  

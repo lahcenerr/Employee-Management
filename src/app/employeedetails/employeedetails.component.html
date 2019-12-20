@@ -1,0 +1,9 @@
+<h2>Employee Details</h2>
+<p> You selected the employee with id = {{employeeid}}</p>
+<p>Click to see employee details</p>
+    
+    <button (click) = "showContact()">Employee contact</button>
+    <router-outlet></router-outlet>
+    <p>
+        <button text="navigateBack" (click)="backClicked()">Back</button>
+    </p>
